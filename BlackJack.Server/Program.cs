@@ -8,6 +8,7 @@ namespace BlackJack.Server
 	{
 		static void Main(string[] args)
 		{
+			Console.WriteLine("Runing");
 			int port = 6000;
 			IPEndPoint ipe = new IPEndPoint(IPAddress.Loopback, port);
 			Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
