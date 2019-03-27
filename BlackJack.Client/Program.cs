@@ -9,8 +9,8 @@ namespace BlackJack.Client
 	{
 		static void Main(string[] args)
 		{
-			int port = 6000;
-			string host = "127.0.0.1";
+			int port = 80;
+			string host = "47.100.172.185";
 			Console.WriteLine("Start");
 			IPAddress ip = IPAddress.Parse(host);
 			IPEndPoint ipe = new IPEndPoint(ip, port);
