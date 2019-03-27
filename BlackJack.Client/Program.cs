@@ -5,13 +5,13 @@ using System.Text;
 
 namespace BlackJack.Client
 {
-    class Program
-    {
-        static void Main(string[] args)
-        {
+	class Program
+	{
+		static void Main(string[] args)
+		{
 			int port = 6000;
-			string host = "47.100.172.185";
-
+			string host = "127.0.0.1";
+			Console.WriteLine("Start");
 			IPAddress ip = IPAddress.Parse(host);
 			IPEndPoint ipe = new IPEndPoint(ip, port);
 			using (Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp))
@@ -23,15 +23,16 @@ namespace BlackJack.Client
 				socket.Send(sendBytes);
 				while (true)
 				{
-					string recStr = "";
 					int bytes = socket.Receive(recBytes, recBytes.Length, 0);
-					recStr = Encoding.ASCII.GetString(recBytes, 0, bytes);
-					Console.WriteLine(recStr);
+					Console.WriteLine(Encoding.ASCII.GetString(recBytes, 0, bytes));
 					System.Threading.Thread.Sleep(500);
+					Console.Write("Next:");
+					sendStr = Console.ReadLine();
+					sendBytes = Encoding.ASCII.GetBytes(sendStr); 
 					socket.Send(sendBytes);
 				}
 			}
-			
+
 		}
-    }
+	}
 }

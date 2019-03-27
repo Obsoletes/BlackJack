@@ -18,8 +18,11 @@ namespace BlackJack.Server
 			{
 				Socket serverSocket = socket.Accept();
 				byte[] recByte = new byte[4096];
-				int bytes = serverSocket.Receive(recByte, recByte.Length, 0);
-				serverSocket.Send(recByte, bytes, SocketFlags.None);
+				while (true)
+				{
+					int bytes = serverSocket.Receive(recByte, recByte.Length, 0);
+					serverSocket.Send(recByte, bytes, SocketFlags.None);
+				}
 			}
 		}
 	}
