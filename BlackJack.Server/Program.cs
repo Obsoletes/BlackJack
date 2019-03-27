@@ -10,7 +10,7 @@ namespace BlackJack.Server
 		{
 			Console.WriteLine("Runing");
 			int port = 6000;
-			IPEndPoint ipe = new IPEndPoint(IPAddress.Loopback, port);
+			IPEndPoint ipe = new IPEndPoint(IPAddress.Any, port);
 			Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 			socket.Bind(ipe);
 			socket.Listen(0);

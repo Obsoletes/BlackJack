@@ -9,7 +9,7 @@ namespace BlackJack.Client
 	{
 		static void Main(string[] args)
 		{
-			int port = 80;
+			int port = 6000;
 			string host = "47.100.172.185";
 			Console.WriteLine("Start");
 			IPAddress ip = IPAddress.Parse(host);
